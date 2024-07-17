@@ -1,0 +1,14 @@
+---
+# tasks file for httpd
+- name: install apache httpd
+  ansible.builtin.apt:
+    name: apache2
+    state: latest
+    update_cache: yes
+- name: copy the file and give perimissions
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/
+    mode: 600
+    owner: ubuntu
+    group: ubuntu
